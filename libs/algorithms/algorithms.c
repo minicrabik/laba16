@@ -142,5 +142,27 @@ long long int findSumOfMaxesOfPseudoDiagonal(matrix m) {
     return sum;
 }
 
+// 8 задание
+bool value_in_area(position max, int i, int j) {
+    position new_position = {i - max.row_index, j - max.col_index};
+
+    return (new_position.row_index <= new_position.col_index) && (new_position.row_index <= -new_position.col_index);
+}
+
+
+int getMinInArea(matrix m) {
+    position max = getMaxValuePos(m);
+
+    int min = (int) 1e18;
+
+    for (int i = 0; i <= max.row_index; i++)
+        for (int j = 0; j < m.n_cols; j++)
+            if (value_in_area(max, i, j) && m.values[i][j] < min)
+                min = m.values[i][j];
+
+    return min;
+}
+
+//9 задание
 
 

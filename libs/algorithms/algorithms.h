@@ -47,6 +47,11 @@ int max(int a, int b);
 // только если элементы матрицы положительны, иначе 0
 long long int findSumOfMaxesOfPseudoDiagonal(matrix m);
 
+// возвращает true, если элемент по индексу i,j находится в области элемента max
+bool valuInArea(position max, int i, int j);
+
+// возвращает минимальный элемент матрицы m, который находится в зоне
+int getMinInArea(matrix m);
 
 
 #endif //LABA16_ALGORITHMS_H
