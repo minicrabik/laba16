@@ -11,4 +11,11 @@ void swapMinMaxRows(matrix* m);
 //возвращает максимальный элемент в матрице
 int getMax(const int a[], const int n);
 
+void sortRowsByMaxElement(matrix* m);
+
+//возвращает минимальный элемент в матрице
+int getMin( const int a[],const int n);
+
+void sortColsByMinElement(matrix* m);
+
 #endif //LABA16_ALGORITHMS_H
