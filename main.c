@@ -567,6 +567,114 @@ void test_get_n_special_element() {
     test_get_n_special_element_2_not_have_special_element();
 }
 
+void test_swap_penultimate_row_1_standard_value() {
+    matrix m = createMatrixFromArray((int[]) {1, 2, 3,
+                                                 4, 5, 6,
+                                                 7, 8, 1}, 3, 3);
+
+    matrix check = createMatrixFromArray((int[]) {1, 2, 3,
+                                                     1, 4, 7,
+                                                     7, 8, 1}, 3, 3);
+
+    swapPenultimateRow(&m, 0);
+
+    assert(areTwoMatricesEqual(&m, &check));
+
+    freeMemMatrix(&m);
+    freeMemMatrix(&check);
+}
+
+
+void test_swap_penultimate_row_2_one_row() {
+    matrix m = createMatrixFromArray((int[]) {1, 2, 3}, 1, 3);
+
+    matrix check = createMatrixFromArray((int[]) {1, 2, 3}, 1, 3);
+
+    swapPenultimateRow(&m, 0);
+
+    assert(areTwoMatricesEqual(&m, &check));
+
+    freeMemMatrix(&m);
+    freeMemMatrix(&check);
+}
+
+
+void test_swap_penultimate_row() {
+    test_swap_penultimate_row_1_standard_value();
+    test_swap_penultimate_row_2_one_row();
+}
+
+
+
+
+void test_get_n_special_element_2_1_have_special_element() {
+    matrix m = createMatrixFromArray((int[]) {2, 3, 5, 5, 4,
+                                                 6, 2, 3,8, 12,
+                                                 12, 12, 2, 1, 2}, 3, 5);
+
+    int result = getNSpecialElement2(m);
+
+    assert(result == 4);
+
+    freeMemMatrix(&m);
+}
+
+
+void test_get_n_special_element_2_2_not_have_special_element() {
+    matrix m = createMatrixFromArray((int[]) {3, 2, 5, 5, 4,
+                                                 6, 2, 3,12, 9,
+                                                 12, 12, 2, 1, 2}, 3, 5);
+
+    int result = getNSpecialElement2(m);
+
+    assert(result == 0);
+
+    freeMemMatrix(&m);
+}
+
+
+void test_get_n_special_element_2() {
+    test_get_n_special_element_2_1_have_special_element();
+    test_get_n_special_element_2_2_not_have_special_element();
+}
+
+
+
+
+void test_get_vector_index_with_max_angle_1_different_angle() {
+    matrix v = createMatrixFromArray((int[]) {1, 2, 3,
+                                                 4, 3, 3,
+                                                 1, 3, 5}, 3, 3);
+
+    int b[3] = {3, 1, 2};
+
+    int result = getVectorIndexWithMaxAngle(v, b);
+
+    assert(result == 2);
+
+    freeMemMatrix(&v);
+}
+
+
+void test_get_vector_index_with_max_angle_2_equal_angle() {
+    matrix v = createMatrixFromArray((int[]) {1, 2, 3,
+                                                 1, 2, 3,
+                                                 1, 2, 3}, 3, 3);
+
+    int b[3] = {3, 1, 2};
+
+    int result = getVectorIndexWithMaxAngle(v, b);
+
+    assert(result == 0);
+
+    freeMemMatrix(&v);
+}
+
+
+void test_get_vector_index_with_max_angle() {
+    test_get_vector_index_with_max_angle_1_different_angle();
+    test_get_vector_index_with_max_angle_2_equal_angle();
+}
 
 void test() {
     test_swap_min_max_rows();
@@ -580,6 +688,8 @@ void test() {
     test_get_min_in_area();
     test_sort_by_distance();
     test_count_eq_classes_by_rows_sum();
+    test_get_n_special_element_2();
+    test_get_vector_index_with_max_angle();
 }
 
 int main() {

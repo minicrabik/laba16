@@ -124,8 +124,21 @@ bool isSpeciaElement(int a[], int n, int index);
 // возвращает количество "особых" элементов матрицы m
 // элемент считается особенным, если в строке слева от него находятся только меньшие элементы,
 // а справа большие
-int getNSpecialElement2(matrix m);
 
+// возвращает скалярное произведение массива a размера n на массив b размера n
+double getScalarProduct(int a[], int b[], int n);
+
+
+// возвращает длину вектора a размера n
+double getVectorLength(int a[], int n);
+
+
+// возвращает косинус между вектором a размера n и вектором b размера n
+double getCosine(int a[], int b[], int n);
+
+
+// возвращает индекс строки матрицы m, которая образует максимальный угол с данным вектором b
+int getVectorIndexWithMaxAngle(matrix m, int* b);
 
 
 
