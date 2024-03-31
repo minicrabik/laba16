@@ -36,4 +36,6 @@ long long int getSum(int a[], int n);
 // транспонирует матрицу, если суммы строк различны
 void transposeIfMatrixHasNotEqualSumOfRows(matrix* m);
 
+bool isMutuallyInverseMatrices(matrix m1, matrix m2);
+
 #endif //LABA16_ALGORITHMS_H
