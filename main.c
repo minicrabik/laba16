@@ -485,10 +485,71 @@ void test_sort_by_distance() {
     test_sort_by_distance_2_equal_distance();
 }
 
+void test_count_eq_classes_by_rows_sum_1_different_sum() {
+    matrix v = createMatrixFromArray((int[]) {1, 2, 3,
+                                                 4, 5, 6,
+                                                 7, 8, 9,
+                                                 12, 1, 2}, 4, 3);
+
+
+    int result = countEqClassesByRowsSum(v);
+
+    assert(result == 3);
+
+    freeMemMatrix(&v);
+}
+
+
+void test_count_eq_classes_by_rows_sum_2_all_sum_different() {
+    matrix v = createMatrixFromArray((int[]) {1, 2, 3,
+                                                 4, 5, 6,
+                                                 7, 8, 9,
+                                                 10, 11, 12}, 4, 3);
+
+
+    int result = countEqClassesByRowsSum(v);
+
+    assert(result == 4);
+
+    freeMemMatrix(&v);
+}
+
+
+void test_count_eq_classes_by_rows_sum_3_equal_sum() {
+    matrix v = createMatrixFromArray((int[]) {1, 2, 3,
+                                                 1, 3, 2,
+                                                 2, 1, 3,
+                                                 2, 3, 1}, 4, 3);
+
+
+    int result = countEqClassesByRowsSum(v);
+
+    assert(result == 1);
+
+    freeMemMatrix(&v);
+}
+
+
+void test_count_eq_classes_by_rows_sum() {
+    test_count_eq_classes_by_rows_sum_1_different_sum();
+    test_count_eq_classes_by_rows_sum_2_all_sum_different();
+    test_count_eq_classes_by_rows_sum_3_equal_sum();
+}
+
+
+
 void test() {
     test_swap_min_max_rows();
     test_sort_rows_by_max_element();
     test_sort_cols_by_min_element();
+    test_mul_matrices();
+    test_get_square_of_matrix_if_symmetric();
+    test_transpose_if_matrix_has_not_equal_sum_of_rows();
+    test_is_mutually_inverse_matrices();
+    test_find_sum_of_maxes_of_pseudo_diagonal();
+    test_get_min_in_area();
+    test_sort_by_distance();
+    test_count_eq_classes_by_rows_sum();
 }
 
 int main() {

@@ -110,7 +110,7 @@ bool isMutuallyInverseMatrices(matrix m1, matrix m2) {
 
     bool is_e_matrix = isEMatrix(&multi);
 
-    freeMemMmatrix(&multi);
+    freeMemMatrix(&multi);
 
     return is_e_matrix;
 }
@@ -206,5 +206,36 @@ void sortByDistance(matrix* m) {
 }
 
 // 10 задание
+int cmpLongLong(const void* pa, const void* pb) {
+    return (int)(*(long long int*) pa - *(long long int*) pb);
+}
 
+
+int countNUnique(long long int a[], int n) {
+    int amount = 1;
+
+    int i = 0;
+    while (i < n - 1) {
+        if (a[i] != a[i + 1])
+            amount++;
+
+        i++;
+    }
+
+    return amount;
+}
+
+
+int countEqClassesByRowsSum(matrix m) {
+    long long int values[m.n_rows];
+
+    for (int i = 0; i < m.n_rows; i++)
+        values[i] = getSum(m.values[i], m.n_cols);
+
+    qsort(values, m.n_rows, sizeof(long long int), cmpLongLong);
+
+    int result = countNUnique(values, m.n_rows);
+
+    return result;
+}
 

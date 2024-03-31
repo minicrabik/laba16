@@ -57,9 +57,18 @@ int getMinInArea(matrix m);
 float getDistance(int a[], int n);
 
 // сортирует строки матрицы m по не убыванию, основываясь на критерии criteria
-void insertionSortRowsMatrixByRowCriteriaF(matrix* m, float (*criteria)(int*, int))
+void insertionSortRowsMatrixByRowCriteriaF(matrix* m, float (*criteria)(int*, int));
 
 // сортирует строки матрицы m, относительно их удалённости от начала координат
 void sortByDistance(matrix* m);
+
+// возвращает количество уникальных элементов массива a размера n
+int countNUnique(long long int a[], int n);
+
+// возвращает количество уникальных сумм строк матрицы m
+int countEqClassesByRowsSum(matrix m);
+
+//11 задание
+
 
 #endif //LABA16_ALGORITHMS_H
