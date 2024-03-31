@@ -356,3 +356,46 @@ void printMatrixWithMaxZeroRows(matrix ms[], int n_matrix) {
             outputMatrix(ms + i);
 }
 
+//15 задание
+
+int getMaxAbsValue(const int a[], int n) {
+    int max_abs = abs(a[0]);
+
+    for (int i = 1; i < n; i++)
+        if (abs(a[i]) > max_abs)
+            max_abs = abs(a[i]);
+
+    return max_abs;
+}
+
+
+int getMaxAbsValueInMatrix(matrix m) {
+    int max_abs = getMaxAbsValue(m.values[0], m.n_cols);
+
+    for (int i = 1; i < m.n_rows; i++) {
+        int abs_value = getMaxAbsValue(m.values[i], m.n_cols);
+
+        if (abs_value > max_abs)
+            max_abs = abs_value;
+    }
+
+    return max_abs;
+}
+
+
+void printMatrixWithMinStandard(matrix ms[], int n_matrix) {
+    int max_value[n_matrix];
+    int min_value = getMaxAbsValueInMatrix(ms[0]);
+
+    for (int i = 0; i < n_matrix; i++) {
+        int value = getMaxAbsValueInMatrix(ms[i]);
+        max_value[i] = value;
+
+        if (value < min_value)
+            min_value = value;
+    }
+
+    for (int i = 0; i < n_matrix; i++)
+        if (max_value[i] == min_value)
+            outputMatrix(ms + i);
+}
