@@ -68,7 +68,9 @@ int countNUnique(long long int a[], int n);
 // возвращает количество уникальных сумм строк матрицы m
 int countEqClassesByRowsSum(matrix m);
 
-//11 задание
+// возвращает количество "особых" элементов матрицы m
+// элемент считается особенным, если он больше суммы остальных элементов своего столбца
+int getNSpecialElement(matrix m);
 
 
 #endif //LABA16_ALGORITHMS_H

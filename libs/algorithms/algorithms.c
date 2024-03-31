@@ -239,3 +239,25 @@ int countEqClassesByRowsSum(matrix m) {
     return result;
 }
 
+//11 задание
+int getNSpecialElement(matrix m) {
+    int amount = 0;
+
+    for (int i = 0; i < m.n_cols; i++) {
+        int sum = m.values[0][i];
+        int max_values = m.values[0][i];
+
+        for (int j = 1; j < m.n_rows; j++) {
+            sum += m.values[j][i];
+
+            if (m.values[j][i] > max_values)
+                max_values = m.values[j][i];
+        }
+
+        if (max_values > (sum - max_values))
+            amount++;
+    }
+
+    return amount;
+}
+
