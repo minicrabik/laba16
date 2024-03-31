@@ -115,6 +115,19 @@ int getMaxAbsValueInMatrix(matrix m);
 // за норму берут максимум из абсолютных величин матрицы
 void printMatrixWithMinStandard(matrix ms[], int n_matrix);
 
+// возвращает true, если элемент по индексу index в массиве a размера n является особенным
+// элемент особенный, если в строке слева от него находятся только меньшие элементы,
+// иначе false
+bool isSpeciaElement(int a[], int n, int index);
+
+
+// возвращает количество "особых" элементов матрицы m
+// элемент считается особенным, если в строке слева от него находятся только меньшие элементы,
+// а справа большие
+int getNSpecialElement2(matrix m);
+
+
+
 
 
 #endif //LABA16_ALGORITHMS_H

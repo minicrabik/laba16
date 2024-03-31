@@ -399,3 +399,32 @@ void printMatrixWithMinStandard(matrix ms[], int n_matrix) {
         if (max_value[i] == min_value)
             outputMatrix(ms + i);
 }
+
+int min(int a, int b) {
+    return (a < b) ? a : b;
+}
+
+
+bool isSpecialElement(int a[], int n, int index) {
+    for (int i = 0; i < index; i++)
+        if (a[index] != max(a[i], a[index]))
+            return false;
+
+    for (int i = index + 1; i < n; i++)
+        if (a[index] != min(a[i], a[index]))
+            return false;
+
+    return true;
+}
+
+
+int geNSpecialElement2(matrix m) {
+    int amount = 0;
+
+    for (int i = 0; i < m.n_rows; i++)
+        for (int j = 0; j < m.n_cols; j++)
+            if (isSpecialElement(m.values[i], m.n_cols, j))
+                amount++;
+
+    return amount;
+}
