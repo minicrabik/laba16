@@ -285,3 +285,33 @@ void swapPenultimateRow(matrix* m, int n) {
     free(temp);
 }
 
+//13 задание
+bool is_non_descending_sorted(const int a[], int n) {
+    int i = 0;
+    while (i < n - 1) {
+        if (a[i] > a[i + 1])
+            return false;
+        i++;
+    }
+    return true;
+}
+
+
+bool hasAllNonDescendingRows(matrix m) {
+    for (int i = 0; i < m.n_rows; i++)
+        if (!is_non_descending_sorted(m.values[i], m.n_cols))
+            return false;
+    return true;
+}
+
+
+int countNonDescendingRowsMatrices(matrix ms[], int n_matrix) {
+    int amount = 0;
+
+    for (int i = 0; i < n_matrix; i++)
+        if (hasAllNonDescendingRows(ms[i]))
+            amount++;
+
+    return amount;
+}
+
