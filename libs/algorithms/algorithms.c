@@ -4,8 +4,7 @@
 
 #include "algorithms.h"
 
-void insertionSortColsMatrixByColCriteria(matrix *pMatrix, int (*min)(const int *, const int));
-
+//1 задание
 void swapMinMaxRows(matrix* m){
     position mx = getMaxValuePos(*m);
     position mn = getMinValuePos(*m);
@@ -13,6 +12,7 @@ void swapMinMaxRows(matrix* m){
     swapRows(m, mx.row_index, mn.row_index);
 }
 
+//2 задание
 int getMax(const int a[], const int n){
     int max = a[0];
 
@@ -27,6 +27,7 @@ void sortRowsByMaxElement(matrix* m) {
     insertionSortRowsMatrixByRowCriteria(m, getMax);
 }
 
+//3 задание
 int getMin(const int a[], const int n){
     int min = a[0];
 
@@ -41,6 +42,7 @@ void sortColsByMinElement(matrix* m) {
     selectionSortColsMatrixByColCriteria(m, getMin);
 }
 
+//4 задание
 matrix mulMatrices(matrix m1, matrix m2) {
     if (m1.n_cols != m2.n_rows) {
         fprintf(stderr, "Different dimensions of the matrices");
@@ -69,6 +71,37 @@ void getSquareOfMatrixIfSymmetric(matrix* m) {
     m->values = res.values;
     m->n_rows = res.n_rows;
     m->n_cols = res.n_cols;
+}
+
+// 5 задание
+bool isUnique(long long int a[], int n) {
+    for (int i = 0; i < n; i++)
+        for (int j = i + 1; j < n; j++)
+            if (a[i] == a[j])
+                return false;
+
+    return true;
+}
+
+
+long long int getSum(int a[], int n) {
+    long long int res = 0;
+
+    for (int i = 0; i < n; i++)
+        res += a[i];
+
+    return res;
+}
+
+
+void transposeIfMatrixHasNotEqualSumOfRows(matrix* m) {
+    long long int sum[m->n_rows];
+
+    for (int i = 0; i < m->n_rows; i++)
+        sum[i] = getSum(m->values[i], m->n_cols);
+
+    if (isUnique(sum, m->n_rows))
+        transposeSquareMatrix(m);
 }
 
 
