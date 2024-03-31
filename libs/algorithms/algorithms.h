@@ -36,6 +36,17 @@ long long int getSum(int a[], int n);
 // транспонирует матрицу, если суммы строк различны
 void transposeIfMatrixHasNotEqualSumOfRows(matrix* m);
 
+// возвращает true, если матрицы m1 и m2 являются взаимно обратными
+//иначе false
 bool isMutuallyInverseMatrices(matrix m1, matrix m2);
+
+// возвращает максимальный элемент между a и b
+int max(int a, int b);
+
+// возвращает сумму максимальных элементов псевдодиагоналей матрицы m
+// только если элементы матрицы положительны, иначе 0
+long long int findSumOfMaxesOfPseudoDiagonal(matrix m);
+
+
 
 #endif //LABA16_ALGORITHMS_H
