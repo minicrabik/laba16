@@ -53,5 +53,13 @@ bool valuInArea(position max, int i, int j);
 // возвращает минимальный элемент матрицы m, который находится в зоне
 int getMinInArea(matrix m);
 
+// возвращает расстояние вектора a размера n, до начала координат
+float getDistance(int a[], int n);
+
+// сортирует строки матрицы m по не убыванию, основываясь на критерии criteria
+void insertionSortRowsMatrixByRowCriteriaF(matrix* m, float (*criteria)(int*, int))
+
+// сортирует строки матрицы m, относительно их удалённости от начала координат
+void sortByDistance(matrix* m);
 
 #endif //LABA16_ALGORITHMS_H
