@@ -72,5 +72,11 @@ int countEqClassesByRowsSum(matrix m);
 // элемент считается особенным, если он больше суммы остальных элементов своего столбца
 int getNSpecialElement(matrix m);
 
+// возвращает position минимального левого элемента
+position getLeftMin(matrix m);
+
+// меняет местами предпоследнюю строку матрицы m, на n столбец
+void swapPenultimateRow(matrix* m, int n);
+
 
 #endif //LABA16_ALGORITHMS_H
