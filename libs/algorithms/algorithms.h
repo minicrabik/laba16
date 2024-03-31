@@ -92,4 +92,14 @@ bool hasAllNonDescendingRows(matrix m);
 // строки в которых упорядочены по не убыванию
 int countNonDescendingRowsMatrices(matrix ms[], int n_matrix);
 
+// возвращает количество элементов value в массиве a размера n
+int countValues(const int a[], int n, int value);
+
+// возвращает количество нулевых строк в матрицы m
+int countZero_rows(matrix m);
+
+// выводит матрицы, из массива матриц ms размера n_matrix,
+// с максимальным числом нулевых строк
+void printMatrixWithMaxZeroRows(matrix ms[], int n_matrix);
+
 #endif //LABA16_ALGORITHMS_H
